@@ -1,0 +1,643 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ========================================= */
+/* RÉINITIALISATION DE BASE (Reset CSS)      */
+/* ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police propre et professionnelle */
+    background-color: #f8f9fa; /* Fond gris très clair */
+    color: #333333;
+}
+
+
+/* ========================================= */
+/* BARRE DE NAVIGATION (Navbar)              */
+/* ========================================= */
+header {
+    display: flex; /* Utilisation de Flexbox pour aligner logo et menu */
+    justify-content: space-between; /* Pousse le logo à gauche, le menu à droite */
+    align-items: center; /* Centre verticalement */
+    padding: 20px 5% ; /* Espacement intérieur */
+    background-color: #ffffff;
+    border-bottom: 2px solid #eeeeee;
+    
+    position: sticky; /* Garde le menu en haut lors du défilement */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Style du Logo et Titre */
+.logo strong {
+    font-size: 1.5rem;
+    color: #065786; /* Le bleu utilisé dans ton CV LaTeX */
+}
+
+.logo .subtitle {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-left: 10px;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+}
+
+/* Style du Menu */
+nav ul {
+    list-style: none; /* Enlève les points devant les listes */
+    display: flex;
+    gap: 30px; /* Espace entre chaque lien */
+}
+
+nav a {
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: #555555;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease; /* Animation fluide au survol */
+}
+
+/* Effet au survol (Hover) */
+nav a:hover, nav a.active {
+    color: #065786; /* Devient bleu au survol */
+    border-bottom: 2px solid #065786;
+    padding-bottom: 5px;
+}
+
+
+/* ========================================= */
+/* SECTION HERO (Page d'accueil)             */
+/* ========================================= */
+.hero {
+    display: flex; /* Active Flexbox pour mettre le texte et l'image côte à côte */
+    align-items: center; /* Centre verticalement */
+    justify-content: space-between; /* Met de l'espace entre le texte et l'image */
+    padding: 80px 5%; /* Espace en haut/bas et sur les côtés */
+    background-color: #ffffff;
+    max-width: 1200px; /* Limite la largeur sur les grands écrans */
+    margin: 0 auto; /* Centre la section au milieu de la page */
+    gap: 50px; /* Espace minimum entre la gauche et la droite */
+}
+
+/* --- Style de la colonne texte --- */
+.hero-content {
+    flex: 1; /* Prend 50% de l'espace */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: #065786; /* Bleu professionnel */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #555555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* --- Style des Boutons --- */
+.hero-buttons {
+    display: flex;
+    gap: 15px; /* Espace entre les deux boutons */
+}
+
+.btn {
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px; /* Bords légèrement arrondis */
+    transition: all 0.3s ease; /* Animation fluide au survol */
+}
+
+.btn-primary {
+    background-color: #065786;
+    color: #ffffff;
+    border: 2px solid #065786;
+}
+
+.btn-primary:hover {
+    background-color: #044368; /* Devient plus foncé au survol */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #065786;
+    border: 2px solid #065786;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f7fb; /* Fond bleu très clair au survol */
+}
+
+/* --- Style de la photo de profil --- */
+.hero-image {
+    flex: 1; /* Prend 50% de l'espace */
+    display: flex;
+    justify-content: center; /* Centre l'image dans sa colonne */
+}
+
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Recadre l'image proprement sans la déformer */
+    border-radius: 50%; /* Transforme l'image carrée en cercle parfait ! */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Ajoute une ombre élégante (Design UX) */
+    border: 5px solid #ffffff; /* Petite bordure blanche autour */
+}
+
+
+/* ========================================= */
+/* SECTION PORTFOLIO                         */
+/* ========================================= */
+.portfolio-section {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #065786;
+    margin-bottom: 50px;
+}
+
+/* --- 1. Projet Phare (Moodle) --- */
+.featured-project {
+    display: flex; /* Met l'image et le texte côte à côte */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Ombre douce */
+    overflow: hidden; /* Coupe l'image pour respecter les coins arrondis */
+    margin-bottom: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+}
+
+/* Animation au survol de la souris (Bonus UX) */
+.featured-project:hover {
+    transform: translateY(-5px); /* Se soulève légèrement */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* L'ombre s'agrandit */
+}
+
+.project-media {
+    flex: 1.2; /* L'image prend un peu plus de place que le texte */
+    background-color: #e9ecef;
+}
+
+.moodle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h3 {
+    font-size: 1.8rem;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.project-context {
+    color: #065786;
+    font-weight: 500;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* Style de la liste à puces (Design épuré) */
+.project-details ul {
+    list-style-type: none; /* Enlève les gros points noirs moches */
+    margin-bottom: 30px;
+}
+
+.project-details li {
+    margin-bottom: 12px;
+    color: #555555;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Ajoute une petite flèche bleue personnalisée devant chaque puce */
+.project-details li::before {
+    content: "▹"; 
+    color: #065786;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* --- 2. Autres Projets (Grid) --- */
+.subsection-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 40px;
+}
+
+/* Ligne décorative à côté du titre "Autres Projets" */
+.subsection-title::before, .subsection-title::after {
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background-color: #cccccc;
+    vertical-align: middle;
+    margin: 0 15px;
+}
+
+/* Utilisation de CSS Grid pour les 3 cartes */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crée 3 colonnes de taille égale */
+    gap: 30px; /* Espace entre les cartes */
+}
+
+.project-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid #065786; /* Ligne bleue élégante en haut de la carte */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* La carte se soulève au survol */
+}
+
+.project-card h4 {
+    color: #065786;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.project-card p {
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* ========================================= */
+/* SECTION PARCOURS (Timeline)               */
+/* ========================================= */
+.parcours-section {
+    padding: 80px 5%;
+    background-color: #f8f9fa; 
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px; 
+    margin: 0 auto;
+    padding-left: 40px; 
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; /* 线的位置 */
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #065786;
+    border-radius: 3px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+
+.timeline-dot {
+    position: absolute;
+    left: -40px; 
+    top: 5px;
+    width: 23px;
+    height: 23px;
+    background-color: #ffffff;
+    border: 4px solid #065786; 
+    border-radius: 50%; 
+    z-index: 1; 
+    transition: all 0.3s ease; 
+}
+
+
+.timeline-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.timeline-item:hover .timeline-dot {
+    background-color: #065786; 
+    transform: scale(1.2); 
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateX(10px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+}
+
+
+.timeline-date {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #065786;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+    color: #333333;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    color: #666666;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* ========================================= */
+/* SECTION CONTACT                           */
+/* ========================================= */
+.contact-section {
+    padding: 80px 5%;
+    background-color: #ffffff; 
+    text-align: center;
+}
+
+.contact-intro {
+    color: #555555;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    border-radius: 8px;
+    flex: 1; 
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.contact-card .icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: #333333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.contact-card p, .contact-card a {
+    color: #065786;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-card a:hover {
+    text-decoration: underline; 
+}
+
+/* ========================================= */
+/* FOOTER (Pied de page)                     */
+/* ========================================= */
+footer {
+    background-color: #065786; 
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 5%;
+}
+
+.social-links {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.social-btn {
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    padding: 8px 25px;
+    border-radius: 25px; 
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+
+.social-btn:hover {
+    background-color: #ffffff;
+    color: #065786;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8; 
+}
+
+
+/* ========================================= */
+/* PAGE DÉTAIL PROJET (projet-moodle.html)   */
+/* ========================================= */
+.project-hero {
+    background-color: #065786; 
+    color: white;
+    text-align: center;
+    padding: 80px 5%;
+}
+
+.project-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.case-study {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 5%;
+}
+
+.case-block {
+    margin-bottom: 80px;
+    display: flex; 
+    align-items: center;
+    gap: 40px;
+}
+
+
+.case-block h2 {
+    color: #065786;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.case-block p {
+    color: #555555;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.case-list {
+    list-style-position: inside;
+    color: #555555;
+    line-height: 1.6;
+}
+
+
+.case-text {
+    flex: 1;
+}
+
+.case-image {
+    flex: 1.2;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.case-image img {
+    width: 100%;
+    display: block;
+}
+
+
+.align-left {
+    flex-direction: row; 
+}
+
+.align-right {
+    flex-direction: row-reverse; 
+}
+
+
+/* ========================================= */
+/* RESPONSIVE DESIGN (Mobiles et Tablettes)  */
+/* ========================================= */
+
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column-reverse; 
+        text-align: center;
+        padding: 40px 5%;
+        gap: 30px;
+    }
+    .hero-buttons {
+        justify-content: center; 
+    }
+
+    .featured-project {
+        flex-direction: column;
+    }
+
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        padding-left: 25px;
+    }
+    .timeline::before {
+        left: 0;
+    }
+    
+    .timeline-dot {
+        left: -32px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .case-block.align-left, 
+    .case-block.align-right {
+        flex-direction: column;
+    }
+}
